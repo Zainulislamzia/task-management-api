@@ -2,7 +2,7 @@
 
 ## Overview
 
-A RESTful API for task management with user authentication using Express.js and MongoDB.
+A RESTful API for task management with user authentication and task management using Express.js and MongoDB.
 
 ## Prerequisites
 
@@ -37,7 +37,8 @@ npm run dev
 ## Example Requests and Responses
 
 ### User Login
-- **Request**: `POST /auth/login`
+
+- **Request**: `POST /api/login`
   ```json
   {
     "email": "user@example.com",
@@ -57,7 +58,8 @@ npm run dev
   ```
 
 ### Get All Tasks
-- **Request**: `GET /tasks`
+
+- **Request**: `GET /api/tasks`
 - **Response**:
   ```json
   [
@@ -72,7 +74,8 @@ npm run dev
   ```
 
 ### Create a Task
-- **Request**: `POST /tasks`
+
+- **Request**: `POST /api/tasks`
   ```json
   {
     "title": "New Task",
@@ -91,7 +94,8 @@ npm run dev
   ```
 
 ### Get a Task by ID
-- **Request**: `GET /tasks/:id`
+
+- **Request**: `GET /api/tasks/:id`
 - **Response**:
   ```json
   {
@@ -104,7 +108,8 @@ npm run dev
   ```
 
 ### Update a Task
-- **Request**: `PUT /tasks/:id`
+
+- **Request**: `PUT /api/tasks/:id`
   ```json
   {
     "title": "Updated Task",
@@ -123,7 +128,8 @@ npm run dev
   ```
 
 ### Patch a Task
-- **Request**: `PATCH /tasks/:id`
+
+- **Request**: `PATCH /api/tasks/:id`
   ```json
   {
     "completed": true
@@ -141,7 +147,8 @@ npm run dev
   ```
 
 ### Delete a Task
-- **Request**: `DELETE /tasks/:id`
+
+- **Request**: `DELETE /api/tasks/:id`
 - **Response**:
   ```json
   {

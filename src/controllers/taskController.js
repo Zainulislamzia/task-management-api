@@ -4,7 +4,7 @@ const CustomErrorHandler = require("../utils/customErrorHandler");
 exports.getTasks = async (req, res, next) => {
   try {
     const { page = 1, limit = 10 } = req.query;
-    const tasks = await Task.find()
+    const tasks = await Task.find({ createdBy: req.user._id })
       .limit(limit * 1)
       .skip((page - 1) * limit)
       .sort({ createdAt: -1 });
@@ -27,6 +27,7 @@ exports.createTask = async (req, res, next) => {
       title,
       description,
       completed,
+      createdBy: req.user._id,
     });
 
     await task.save();
@@ -40,7 +41,7 @@ exports.getTask = async (req, res, next) => {
   try {
     const task = await Task.findOne({
       _id: req.params.id,
-      // user: req.user._id,
+      createdBy: req.user._id,
     });
 
     if (!task) {
@@ -57,7 +58,7 @@ exports.updateTask = async (req, res, next) => {
   try {
     const { title, description, completed } = req.body;
     const task = await Task.findOneAndUpdate(
-      { _id: req.params.id },
+      { _id: req.params.id, createdBy: req.user._id },
       { title, description, completed },
       { new: true, runValidators: true }
     );
@@ -75,7 +76,7 @@ exports.updateTask = async (req, res, next) => {
 exports.patchTask = async (req, res, next) => {
   try {
     const task = await Task.findOneAndUpdate(
-      { _id: req.params.id },
+      { _id: req.params.id, createdBy: req.user._id },
       { $set: req.body },
       { new: true, runValidators: true }
     );
@@ -96,7 +97,7 @@ exports.deleteTask = async (req, res, next) => {
   try {
     const task = await Task.findOneAndDelete({
       _id: req.params.id,
-      // user: req.user._id,
+      createdBy: req.user._id,
     });
 
     if (!task) {
