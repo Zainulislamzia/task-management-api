@@ -1,6 +1,7 @@
 const JwtService = require("../utils/jwt");
 const User = require("../models/User");
 const { JWT_SECRET } = require("../config");
+const CustomErrorHandler = require("../utils/customErrorHandler");
 
 const authMiddleware = async (req, res, next) => {
   try {
@@ -23,7 +24,7 @@ const authMiddleware = async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    res.status(401).json({ message: "Please authenticate" });
+    return next(CustomErrorHandler.unAuthorized("Please authenticate first"));
   }
 };
 

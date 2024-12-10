@@ -4,7 +4,7 @@ const CustomErrorHandler = require("../utils/customErrorHandler");
 exports.getTasks = async (req, res, next) => {
   try {
     const { page = 1, limit = 10 } = req.query;
-    const tasks = await Task.find({ createdBy: req.user._id })
+    const tasks = await Task.find({})
       .limit(limit * 1)
       .skip((page - 1) * limit)
       .sort({ createdAt: -1 });

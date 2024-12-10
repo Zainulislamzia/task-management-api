@@ -2,17 +2,18 @@ require("dotenv").config();
 const express = require("express");
 const connectDB = require("./src/config/db");
 const logger = require("./src/utils/logger");
-const routes = require("./src/routes/index");
 const errorHandler = require("./src/middleware/errorHandler");
 const { PORT } = require("./src/config");
+const cors = require("cors");
 
 const app = express();
 
 connectDB();
 
 app.use(express.json());
+app.use(cors());
 
-app.use(routes);
+require("./src/routes/index")(app);
 
 app.use(errorHandler);
 

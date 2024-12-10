@@ -14,12 +14,7 @@ router.post(
   taskController.createTask
 );
 router.get("/tasks/:id", authMiddleware, taskController.getTask);
-router.put(
-  "/tasks/:id",
-  authMiddleware,
-  validateRequest(taskSchema, "body"),
-  taskController.updateTask
-);
+router.put("/tasks/:id", authMiddleware, taskController.updateTask);
 router.patch("/tasks/:id", authMiddleware, taskController.patchTask);
 router.delete("/tasks/:id", authMiddleware, taskController.deleteTask);
 

@@ -3,9 +3,9 @@ const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 const registerSchema = Joi.object({
   name: Joi.string().required(),
-  email: Joi.string(emailRegex)
+  email: Joi.string()
     .email({ minDomainSegments: 2 })
-    .regex()
+    .regex(emailRegex)
     .required(),
   password: Joi.string().min(6).required(),
 });
