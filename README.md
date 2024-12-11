@@ -23,7 +23,7 @@ npm install
 ```
 MONGODB_URI=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret
-JWT_EXPIRATION=3600
+JWT_EXPIRATION=2m
 PORT=5000
 ```
 
