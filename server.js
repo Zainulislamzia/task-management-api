@@ -17,9 +17,10 @@ require("./src/routes/index")(app);
 
 app.use(errorHandler);
 
-const port = PORT || 5000;
-app.listen(port, () => {
-  logger.info(`Server running on port ${PORT}`);
-});
-
+if (require.main === module) {
+  const port = PORT || 5000;
+  app.listen(port, () => {
+    logger.info(`Server running on port ${port}`);
+  });
+}
 module.exports = app;

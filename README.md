@@ -34,6 +34,14 @@ PORT=5000
 npm run dev
 ```
 
+5. Run the application in test mode
+
+```bash
+# Test mode
+# Run this command to run unit tests
+npm test
+```
+
 ## Instructions to test the application
 
 1. You can use postman or thunder client to send requests to the server.

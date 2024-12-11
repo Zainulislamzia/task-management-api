@@ -12,8 +12,8 @@ exports.getTasks = async (req, res, next) => {
 
     res.status(200).json({
       data: tasks,
-      totalPages: Math.ceil(count / limit),
-      currentPage: page,
+      totalPages: parseInt(Math.ceil(count / limit)),
+      currentPage: parseInt(page),
     });
   } catch (error) {
     return next(error);
