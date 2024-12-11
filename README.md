@@ -6,7 +6,7 @@ A RESTful API for task management with user authentication and task management u
 
 ## Prerequisites
 
-- Node.js (v14+)
+- Node.js (latest version)
 - MongoDB
 
 ## Setup Instructions
@@ -34,11 +34,16 @@ PORT=5000
 npm run dev
 ```
 
+## Instructions to test the application
+
+1. You can use postman or thunder client to send requests to the server.
+2. Example url: http://localhost:5000/api/v1/login
+
 ## Example Requests and Responses
 
 ### User Login
 
-- **Request**: `POST /api/login`
+- **Request**: `POST /api/v1/login`
   ```json
   {
     "email": "user@example.com",
@@ -59,7 +64,7 @@ npm run dev
 
 ### Get All Tasks
 
-- **Request**: `GET /api/tasks`
+- **Request**: `GET /api/v1/tasks`
 - **Response**:
   ```json
   [
@@ -75,7 +80,7 @@ npm run dev
 
 ### Create a Task
 
-- **Request**: `POST /api/tasks`
+- **Request**: `POST /api/v1/tasks`
   ```json
   {
     "title": "New Task",
@@ -95,7 +100,7 @@ npm run dev
 
 ### Get a Task by ID
 
-- **Request**: `GET /api/tasks/:id`
+- **Request**: `GET /api/v1/tasks/:id`
 - **Response**:
   ```json
   {
@@ -109,7 +114,7 @@ npm run dev
 
 ### Update a Task
 
-- **Request**: `PUT /api/tasks/:id`
+- **Request**: `PUT /api/v1/tasks/:id`
   ```json
   {
     "title": "Updated Task",
@@ -129,7 +134,7 @@ npm run dev
 
 ### Patch a Task
 
-- **Request**: `PATCH /api/tasks/:id`
+- **Request**: `PATCH /api/v1/tasks/:id`
   ```json
   {
     "completed": true
@@ -148,7 +153,7 @@ npm run dev
 
 ### Delete a Task
 
-- **Request**: `DELETE /api/tasks/:id`
+- **Request**: `DELETE /api/v1/tasks/:id`
 - **Response**:
   ```json
   {
